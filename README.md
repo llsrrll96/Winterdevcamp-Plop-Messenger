@@ -56,11 +56,12 @@ Docker<br>
 - [MongoDB를 이용하여 채팅, 채팅방, 유저접속상태 데이터 관리](https://github.com/sgdevcamp2022/plop/wiki/MongoDB-%EC%82%AC%EC%9A%A9)
 - ec2 서버에 카프카 연동
 - springdoc으로 REST API 문서화
-- 성능 테스트와 그라파나로 모니터링
+- [성능 테스트와 그라파나로 모니터링](https://github.com/sgdevcamp2022/plop/wiki/%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0)
 <br>
 
 ## 4️⃣ 아키텍처
 <img src="https://user-images.githubusercontent.com/58140426/222035675-11bb537f-8feb-4ee3-a4a6-164ebdecce9e.png" width="720">
+
 - AWS EC2 배포하였습니다.
 - EC2에 카프카 설치와 도커를 설치하여 인증 토큰을 저장하는 Redis와 모니터링 툴인 그라파나를 
 - AWS RDS 를 사용하여 MySQL을 배포하였습니다.
