@@ -62,7 +62,7 @@ Docker<br>
 ## 4️⃣ 아키텍처
 <img src="https://user-images.githubusercontent.com/58140426/222035675-11bb537f-8feb-4ee3-a4a6-164ebdecce9e.png" width="720">
 
-- AWS EC2 배포하였습니다.
-- EC2에 카프카 설치와 도커를 설치하여 인증 토큰을 저장하는 Redis와 모니터링 툴인 그라파나를 
+- AWS EC2에 배포하였습니다.
+- EC2에 카프카 설치와 도커를 설치하여 인증 토큰을 저장하는 Redis와 모니터링 툴인 그라파나를 실행시켰습니다.
 - AWS RDS 를 사용하여 MySQL을 배포하였습니다.
 - MongoDB Atlas를 사용하여 클라우드에 MongoDB 배포하였습니다.
