@@ -47,6 +47,7 @@ Git<br>
 JUnit5<br>
 AWS<br>
 Docker<br>
+Prometheus&Grafana<br>
 
 > [최종 발표](https://drive.google.com/file/d/1a4kDE4Aer8W8LRsf4IpQH-Hb_nG3kCki/view?usp=sharing)
 
@@ -67,6 +68,12 @@ Docker<br>
 - EC2에 카프카 설치와 도커를 설치하여 인증 토큰을 저장하는 Redis와 모니터링 툴인 그라파나를 실행시켰습니다.
 - AWS RDS 를 사용하여 MySQL을 배포하였습니다.
 - MongoDB Atlas를 사용하여 클라우드에 MongoDB 배포하였습니다.
+
+<br>
+
+
+### 성능측정환경
+<img src="https://user-images.githubusercontent.com/58140426/223004735-7972ec45-6263-401c-b43c-8c94a29c9bdc.png" width="720">
 
 <br>
 
