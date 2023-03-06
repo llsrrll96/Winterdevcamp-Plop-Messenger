@@ -73,8 +73,9 @@ Prometheus&Grafana<br>
 
 ## 5️⃣ 웹소켓 통신
 > 웹소켓 위에서 동작하는 STOMP를 사용하여 pub/sub 구조를 통해 웹소켓으로 통신할 수 있는 채팅기능을 구현하였습니다.
-<img src="https://user-images.githubusercontent.com/58140426/223013889-4bcfb8d0-357a-4cd4-90a6-f11c18aae2fe.jpg" width="720">
+<img src="https://user-images.githubusercontent.com/58140426/223014008-7e1c820f-e406-47e8-bc43-6c05337749ad.png" width="720">
 
+<br>
 
 ##  성능 개선
 
