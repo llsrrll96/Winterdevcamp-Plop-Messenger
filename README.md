@@ -72,12 +72,31 @@ Prometheus&Grafana<br>
 <br>
 
 ## 5️⃣ 웹소켓 통신
-> 웹소켓 위에서 동작하는 STOMP를 사용하여 pub/sub 구조를 통해 웹소켓으로 통신할 수 있는 채팅기능을 구현하였습니다.
+> 웹소켓 통신을 pub/sub 구조를 통해 웹소켓으로 통신할 수 있는 채팅기능을 구현하였습니다.
 <img src="https://user-images.githubusercontent.com/58140426/223014008-7e1c820f-e406-47e8-bc43-6c05337749ad.png" width="720">
+
+웹소켓 엔드포인트
+- 채팅 메시지 : "/chatting/topic/room/{roomId}"
+- 방생성 메시지 : "/chatting/topic/new-room/{userId}"
+
+<img src="https://user-images.githubusercontent.com/58140426/223027012-0efd6798-82a2-4bae-843a-3ccc48e6a410.png" >
 
 <br>
 
-##  성능 개선
+## 6️⃣ kafka (Broker)
+
+> 다수 서버일 경우 다른 서버사용자와 채팅불가하기 때문에 외부 메시지 브로커 사용 <br>
+STOMP의 pub/sub 구조와 유사한 kafka의 producer/consumer을 통해 채팅 구현
+
+
+<img src="https://user-images.githubusercontent.com/58140426/223024472-84b1236e-bb21-44a4-9e51-9150ca87084e.png" >
+
+consumer로 받아 소켓 전달
+- 토픽을 통해 채팅메시지, 방생성메시지를 구분하여 전달
+
+<br>
+
+## 7️⃣ 성능 개선
 
 ### 측정환경
 
@@ -86,8 +105,16 @@ Prometheus&Grafana<br>
 <img src="https://user-images.githubusercontent.com/58140426/223004735-7972ec45-6263-401c-b43c-8c94a29c9bdc.png" width="720">
 
 <br>
+> 리팩토링, 톰캣의 스레드, 히카리CP Connection pool 설정으로 TPS 을 개선하였습니다. 
+<div>
+<img src="https://user-images.githubusercontent.com/58140426/223026288-997d7cd0-2aac-4678-a975-8869614aa69e.png" width="480">
+<img src="https://user-images.githubusercontent.com/58140426/223026044-11520eb9-8fc4-490f-918d-9521d9be8a8a.png" width="480">
+</div>
+TPS : 141.2 -> 399.4 
 
-## 6️ Learned
+<br>
+
+## 8️⃣ Learned
 - 스프링에서 웹소켓과 STOMP 방식으로 소켓 통신을 할 수 있게 되었습니다.
 - nGrinder를 사용해 부하테스트를 해보았고, 톰캣 설정과 리팩토링을 통해 성능 개선해 보았습니다. 
   - CPU 사용량, 힙, GC과 같은 객관적인 수치를 보고 성능 개선을 할 수 있는 개발자가 되기 위해 필요 지식들을 공부해야겠다는 생각이 들었습니다.
