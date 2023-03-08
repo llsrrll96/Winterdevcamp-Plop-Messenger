@@ -57,7 +57,7 @@ Prometheus&Grafana<br>
 - [외부 메시지 브로커로 카프카를 이용하여 전송](https://github.com/sgdevcamp2022/plop/wiki/Kafka-%EC%82%AC%EC%9A%A9)
 - [MongoDB를 이용하여 채팅, 채팅방, 유저접속상태 데이터 관리](https://github.com/sgdevcamp2022/plop/wiki/MongoDB-%EC%82%AC%EC%9A%A9)
 - ec2 서버에 카프카 연동
-- [Spring REST Docs으로 REST API 문서화](https://github.com/llsrrll96/Winterdevcamp-Plop-Messenger/wiki/API-%EB%AC%B8%EC%84%9C%ED%99%94%EB%A5%BC-%EC%9C%84%ED%95%B4-Spring-REST-Docs-%EB%8F%84%EC%9E%85)
+- [SpringDoc으로 REST API 문서화](https://github.com/llsrrll96/Winterdevcamp-Plop-Messenger/wiki/API-%EB%AC%B8%EC%84%9C%ED%99%94%EB%A5%BC-%EC%9C%84%ED%95%B4-Spring-REST-Docs-%EB%8F%84%EC%9E%85)
 - [성능 테스트와 그라파나로 모니터링](https://github.com/sgdevcamp2022/plop/wiki/%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0)
 <br>
 
