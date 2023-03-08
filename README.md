@@ -57,7 +57,7 @@ Prometheus&Grafana<br>
 - [외부 메시지 브로커로 카프카를 이용하여 전송](https://github.com/sgdevcamp2022/plop/wiki/Kafka-%EC%82%AC%EC%9A%A9)
 - [MongoDB를 이용하여 채팅, 채팅방, 유저접속상태 데이터 관리](https://github.com/sgdevcamp2022/plop/wiki/MongoDB-%EC%82%AC%EC%9A%A9)
 - ec2 서버에 카프카 연동
-- springdoc으로 REST API 문서화
+- [Spring REST Docs으로 REST API 문서화](https://github.com/llsrrll96/Winterdevcamp-Plop-Messenger/wiki/API-%EB%AC%B8%EC%84%9C%ED%99%94%EB%A5%BC-%EC%9C%84%ED%95%B4-Spring-REST-Docs-%EB%8F%84%EC%9E%85)
 - [성능 테스트와 그라파나로 모니터링](https://github.com/sgdevcamp2022/plop/wiki/%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0)
 <br>
 
@@ -116,7 +116,7 @@ TPS : 141.2 -> 399.4
 <br>
 
 ## 8️⃣ Learned
-- 스프링에서 웹소켓과 Kafka를 사용하여 STOMP 방식과 유사하게 Producer/consumer 구조로 소켓 통신을 통해 채팅기능을 구현하였습니다.
+- 스프링에서 웹소켓과 Kafka를 사용하여 STOMP 방식과 유사 Producer/consumer 구조로 소켓 통신을 통해 채팅기능을 구현하였습니다.
 - nGrinder를 사용해 부하테스트를 해보고 Grafana로 서버 상태를 모니터링, 톰캣 설정과 리팩토링을 통해 성능 개선해 보았습니다. 
   - CPU 사용량, 힙, GC과 같은 객관적인 수치를 보고 성능 개선을 할 수 있는 개발자가 되기 위해 필요 지식들을 공부해야겠다는 생각이 들었습니다.
   - 개발 환경과 배포 환경이 다를 경우가 많기 때문에 설정값이 다르게 적용됨.
