@@ -1,5 +1,5 @@
 # 📱 Plop Messenger
-> 스마일게이트 개발 캠프 2022 - 윈터 개발 캠프 2기 - Plop
+> 스마일게이트 윈터 개발 캠프 2기 2022
 <img src="https://user-images.githubusercontent.com/58140426/222033085-2fa98aff-7fd5-4932-92fd-d5c955acc013.png" width="200">
 
 SmileGate 윈터데브캠프에서 IOS 개발자 1명, AOS 개발자 1명, 벡엔드 개발자 1명과 함께 협업 프로젝트를 진행했습니다.
