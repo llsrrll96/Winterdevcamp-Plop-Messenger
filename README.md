@@ -53,7 +53,7 @@ Prometheus&Grafana<br>
 
 ### 주요 작업 
 - [채팅, 채팅방, 유저 접속상태 API 로직 구현](https://github.com/sgdevcamp2022/plop/wiki/%EC%B1%84%ED%8C%85-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84-%EB%A1%9C%EC%A7%81)
-- [웹소켓 통신을 위해 STOM의의 pub/sub 구조를 통해 채팅 전송을 하는 로직 설계 및 구현](https://github.com/sgdevcamp2022/plop/wiki/%EC%9B%B9%EC%86%8C%EC%BC%93-%ED%86%B5%EC%8B%A0%EC%97%90%EC%84%9C-pub-sub-%EA%B5%AC%EC%A1%B0%EB%A5%BC-%ED%86%B5%ED%95%B4-%EC%B1%84%ED%8C%85-%EC%A0%84%EC%86%A1%EC%9D%84-%ED%95%98%EB%8A%94-%EB%A1%9C%EC%A7%81-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B5%AC%ED%98%84)
+- [웹소켓 통신을 위해 STOMP의 pub/sub 구조를 통해 채팅 전송을 하는 로직 설계 및 구현](https://github.com/sgdevcamp2022/plop/wiki/%EC%9B%B9%EC%86%8C%EC%BC%93-%ED%86%B5%EC%8B%A0%EC%97%90%EC%84%9C-pub-sub-%EA%B5%AC%EC%A1%B0%EB%A5%BC-%ED%86%B5%ED%95%B4-%EC%B1%84%ED%8C%85-%EC%A0%84%EC%86%A1%EC%9D%84-%ED%95%98%EB%8A%94-%EB%A1%9C%EC%A7%81-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B5%AC%ED%98%84)
 - [외부 메시지 브로커로 카프카를 이용하여 전송](https://github.com/sgdevcamp2022/plop/wiki/Kafka-%EC%82%AC%EC%9A%A9)
 - [MongoDB를 이용하여 채팅, 채팅방, 유저접속상태 데이터 관리](https://github.com/sgdevcamp2022/plop/wiki/MongoDB-%EC%82%AC%EC%9A%A9)
 - ec2 서버에 카프카 연동
