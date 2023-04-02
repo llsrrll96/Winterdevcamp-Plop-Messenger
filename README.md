@@ -53,7 +53,7 @@ Prometheus&Grafana<br>
 
 ### 주요 작업 
 - [채팅, 채팅방, 유저 접속상태 API 로직 구현](https://github.com/sgdevcamp2022/plop/wiki/%EC%B1%84%ED%8C%85-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84-%EB%A1%9C%EC%A7%81)
-- [웹소켓 통신에서 pub/sub 구조를 통해 채팅 전송을 하는 로직 설계 및 구현](https://github.com/sgdevcamp2022/plop/wiki/%EC%9B%B9%EC%86%8C%EC%BC%93-%ED%86%B5%EC%8B%A0%EC%97%90%EC%84%9C-pub-sub-%EA%B5%AC%EC%A1%B0%EB%A5%BC-%ED%86%B5%ED%95%B4-%EC%B1%84%ED%8C%85-%EC%A0%84%EC%86%A1%EC%9D%84-%ED%95%98%EB%8A%94-%EB%A1%9C%EC%A7%81-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B5%AC%ED%98%84)
+- [웹소켓 통신을 위해 STOM의의 pub/sub 구조를 통해 채팅 전송을 하는 로직 설계 및 구현](https://github.com/sgdevcamp2022/plop/wiki/%EC%9B%B9%EC%86%8C%EC%BC%93-%ED%86%B5%EC%8B%A0%EC%97%90%EC%84%9C-pub-sub-%EA%B5%AC%EC%A1%B0%EB%A5%BC-%ED%86%B5%ED%95%B4-%EC%B1%84%ED%8C%85-%EC%A0%84%EC%86%A1%EC%9D%84-%ED%95%98%EB%8A%94-%EB%A1%9C%EC%A7%81-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B5%AC%ED%98%84)
 - [외부 메시지 브로커로 카프카를 이용하여 전송](https://github.com/sgdevcamp2022/plop/wiki/Kafka-%EC%82%AC%EC%9A%A9)
 - [MongoDB를 이용하여 채팅, 채팅방, 유저접속상태 데이터 관리](https://github.com/sgdevcamp2022/plop/wiki/MongoDB-%EC%82%AC%EC%9A%A9)
 - ec2 서버에 카프카 연동
@@ -72,12 +72,13 @@ Prometheus&Grafana<br>
 <br>
 
 ## 5️⃣ 웹소켓 통신
-> 웹소켓 통신을 pub/sub 구조를 통해 웹소켓으로 통신할 수 있는 채팅기능을 구현하였습니다.
+> 웹소켓과 STOMP 프로토콜을 서브 프로토콜로 사용, pub/sub 구조를 통해 채팅기능을 구현하였습니다.
 <img src="https://user-images.githubusercontent.com/58140426/223014008-7e1c820f-e406-47e8-bc43-6c05337749ad.png" width="720">
 
-웹소켓 엔드포인트
+STOMP 의 구독(sub) 엔드포인트
 - 채팅 메시지 : "/chatting/topic/room/{roomId}"
 - 방생성 메시지 : "/chatting/topic/new-room/{userId}"
+- 사용자 접속상태 메시지 : "/presence/user-sub/{userId}"
 
 <img src="https://user-images.githubusercontent.com/58140426/223027012-0efd6798-82a2-4bae-843a-3ccc48e6a410.png" >
 
@@ -85,14 +86,24 @@ Prometheus&Grafana<br>
 
 ## 6️⃣ kafka (Broker)
 
-> 다수 서버일 경우 다른 서버사용자와 채팅불가하기 때문에 외부 메시지 브로커 사용 <br>
-STOMP의 pub/sub 구조와 유사한 kafka의 producer/consumer을 통해 채팅 구현
+> 다수 서버일 경우 다른 서버사용자와 채팅불가하기 때문에 외부 메시지 브로커 사용 <br/>
+
+<b>kafka의 producer/consumer을 통해 메시지 이벤트 브로커로 사용</b> <br/>
+토픽을 통해 채팅, 방생성, 사용자 접속상태 메시지들을 구분 <br/>
+
+장점: <br/>
+- 느슨한 결합( Publisher는 메시지를 발신할 때 다른 서비스들에 대해 알 필요가 전혀 없음, scale-out용이)
+- 메시지 버퍼링에 대해 Subscriber에서 원하는 시점에 메시지 처리 가능 <br/>
+
+단점: <br/>
+- 부하 발생, 비해서 속도가 느릴 수 있다. <br/><br/>
 
 
+카프카 활용 <br/>
 <img src="https://user-images.githubusercontent.com/58140426/223024472-84b1236e-bb21-44a4-9e51-9150ca87084e.png" >
 
-consumer로 받아 소켓 전달
-- 토픽을 통해 채팅메시지, 방생성메시지를 구분하여 전달
+Consumers 클래스로 받아 소켓으로 클라이언트에 메시지는 보낸다.
+- 토픽(topics)을 통해 채팅, 방생성 메시지를 구분하여 전달
 
 <br>
 
@@ -116,7 +127,7 @@ TPS : 141.2 -> 399.4
 <br>
 
 ## 8️⃣ Learned
-- 웹소켓과 STOMP, Kafka를 사용하여 1:1, 단체 채팅 구현하였습니다.
+- 웹소켓과 STOMP, Kafka를 사용하여 1:1, 단체 채팅, 사용자 접속상태 구현하였습니다.
     - 웹소켓 기반의 STOMP 을 사용하여 pub/sub 구조를 통해 웹소켓 통신으로 채팅기능을 구현
     - 메시지 브로커로 Kafka를 사용하여 Producer/consumer 구조로 토픽을 분류하여 전달
         - 채팅 메시지 토픽, 방생성 정보 토픽으로 나누어 전달 
