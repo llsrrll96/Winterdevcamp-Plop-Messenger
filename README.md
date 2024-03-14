@@ -14,40 +14,16 @@ Plop 메신저 애플리케이션
 
 <br>
 
-## 2️⃣ 주요 화면
-### 1. 1:1 채팅
-<img src="https://user-images.githubusercontent.com/58140426/222035975-93710f9d-e6ea-4840-8c24-7ecaa4280d1c.png" width="720">
 
-### 2. 그룹 채팅
-<img src="https://user-images.githubusercontent.com/58140426/222036233-040ab562-0aec-4c3c-b77f-e9f62ec86225.png" width="720">
-
-### 3. 멤버 초대 
-<img src="https://user-images.githubusercontent.com/58140426/222036513-18fb2eb9-1632-4057-84d9-801ac9107cd1.png" width="720">
-
-### 4. 접속 상태 표시
-<img src="https://user-images.githubusercontent.com/58140426/222036414-7fa22d60-b511-4568-afe9-43574056b144.png" width="720">
-
-### 5. 푸시 알림
-<img src="https://user-images.githubusercontent.com/58140426/222036574-674207f1-f641-4456-8442-eba6b9838117.png" width="720">
-
-<br>
-
-## 3️⃣ 프로젝트 결과 
-> 저는 벡엔드 담당으로 채팅 서비스, 접속상태 서비스를 담당하였습니다. 설계와 구현 과정을 [기술 블로그](https://javapp.tistory.com/category/Dev/%5B%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%5D%202022%20Winter%20Dev%20Camp)에 정리했습니다.
+## 2️⃣ 프로젝트 결과 
+> 저는 벡엔드 담당으로 채팅 서비스, 접속상태 서비스를 담당하였습니다.<br> 설계와 구현 과정을 [기술 블로그](https://javapp.tistory.com/category/Dev/%5B%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%5D%202022%20Winter%20Dev%20Camp)에 자세히 설명했습니다.
 
 > MSA 구조로 API 게이트웨이 서버와 디스커버리 서버를 두고 유저, 채팅 등 여러 마이크로서비스들로 구성하였습니다.
 
 > 사용한 기술 스택은 다음과 같습니다.<br>
-Java11<br>
-Spring Boot 2.7.8<br>
-kafka<br>
-MongoDB(NoSQL)<br>
-Gradle<br>
-Git<br>
-JUnit5<br>
-AWS<br>
-Docker<br>
-Prometheus&Grafana<br>
+<img src="https://github.com/llsrrll96/Winterdevcamp-Plop-Messenger/assets/58140426/8e4d2eaa-e654-4dd0-ae69-14148d1e1a7f" width="360">
+
+<br>
 
 > [최종 발표](https://drive.google.com/file/d/1a4kDE4Aer8W8LRsf4IpQH-Hb_nG3kCki/view?usp=sharing)
 
@@ -61,17 +37,17 @@ Prometheus&Grafana<br>
 - [성능 테스트와 그라파나로 모니터링](https://github.com/sgdevcamp2022/plop/wiki/%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0)
 <br>
 
-## 4️⃣ 아키텍처
+## 3️⃣ 아키텍처
 <img src="https://user-images.githubusercontent.com/58140426/222035675-11bb537f-8feb-4ee3-a4a6-164ebdecce9e.png" width="720">
 
-- AWS EC2에 배포하였습니다.
-- EC2에 카프카 설치와 도커를 설치하여 인증 토큰을 저장하는 Redis와 모니터링 툴인 그라파나를 실행시켰습니다.
-- AWS RDS 를 사용하여 MySQL을 배포하였습니다.
-- MongoDB Atlas를 사용하여 클라우드에 MongoDB 배포하였습니다.
+- Spring Cloud로 MSA 구성하고 로드밸런싱을 하여 채팅서버의 부하를 낮추었습니다.
+- EC2에 카프카 설치와 도커를 설치하여 인증 토큰을 저장하는 Redis와 모니터링 툴인 그라파나를 관리하였습니다.
+- AWS EC2에 배포 및 AWS RDS 를 통해 MySQL을 사용했습니다.
+- MongoDB Atlas를 통해 MongoDB를 원격으로 사용했습니다.
 
 <br>
 
-## 5️⃣ 웹소켓 통신
+## 4️⃣ 웹소켓 통신
 > 웹소켓과 STOMP 프로토콜을 서브 프로토콜로 사용, pub/sub 구조를 통해 채팅기능을 구현하였습니다.
 <img src="https://user-images.githubusercontent.com/58140426/223014008-7e1c820f-e406-47e8-bc43-6c05337749ad.png" width="720">
 
@@ -84,7 +60,7 @@ STOMP 의 구독(sub) 엔드포인트
 
 <br>
 
-## 6️⃣ kafka (Broker)
+## 5️⃣ kafka (Broker)
 
 > 다수 서버일 경우 다른 서버사용자와 채팅불가하기 때문에 외부 메시지 브로커 사용 <br/>
 
@@ -107,7 +83,7 @@ Consumers 클래스로 받아 소켓으로 클라이언트에 메시지는 보�
 
 <br>
 
-## 7️⃣ 성능 개선
+## 6️⃣ 성능 개선
 
 ### 측정환경
 
@@ -126,7 +102,7 @@ TPS : 141.2 -> 399.4
 <br>
 <br>
 
-## 8️⃣ Learned
+## 7️⃣ Learned
 - 웹소켓과 STOMP, Kafka를 사용하여 1:1, 단체 채팅, 사용자 접속상태 구현하였습니다.
     - 웹소켓 기반의 STOMP 을 사용하여 pub/sub 구조를 통해 웹소켓 통신으로 채팅기능을 구현
     - 메시지 브로커로 Kafka를 사용하여 Producer/consumer 구조로 토픽을 분류하여 전달
@@ -142,3 +118,23 @@ TPS : 141.2 -> 399.4
   - 맡은 부분에 최선을 다하기 : 이번 프로젝트에 MongoDB와 웹소켓 통신을 처음 사용해보는 기술이지만 빠르게 익히고 내가 맡은 부분에 책임감을 가지고 구현하였습니다.
   - 프론트엔드와 연동 : 대부분의 기능을 구현한 뒤에 배포를 하여 프론트엔드와 연동하였습니다만, 멘토링을 통해 다음과 같이 진행해야겠다고 생각했습니다.
     - 프로젝트 개발 과정 : 개발 초기에 서버에 가데이터를 넣어 배포, 프론트엔드에서 요청에 대한 결과를 통해 서버와 미리 연동해보며 에러 대처와 화면 구성의 편의성을 제공, 이후 DB와 연동하여 정식으로 배포를 하는 방법
+
+<br>
+
+## 8️⃣ 주요 화면
+### 1. 1:1 채팅
+<img src="https://user-images.githubusercontent.com/58140426/222035975-93710f9d-e6ea-4840-8c24-7ecaa4280d1c.png" width="720">
+
+### 2. 그룹 채팅
+<img src="https://user-images.githubusercontent.com/58140426/222036233-040ab562-0aec-4c3c-b77f-e9f62ec86225.png" width="720">
+
+### 3. 멤버 초대 
+<img src="https://user-images.githubusercontent.com/58140426/222036513-18fb2eb9-1632-4057-84d9-801ac9107cd1.png" width="720">
+
+### 4. 접속 상태 표시
+<img src="https://user-images.githubusercontent.com/58140426/222036414-7fa22d60-b511-4568-afe9-43574056b144.png" width="720">
+
+### 5. 푸시 알림
+<img src="https://user-images.githubusercontent.com/58140426/222036574-674207f1-f641-4456-8442-eba6b9838117.png" width="720">
+
+<br>
